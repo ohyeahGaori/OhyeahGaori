@@ -1,0 +1,14 @@
+spring:
+  profiles:
+    active: local
+    include:
+      - local
+
+
+---
+
+spring:
+  profiles:
+    active: dev
+
+---
