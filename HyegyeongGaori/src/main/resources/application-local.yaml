@@ -16,6 +16,26 @@ spring:
     date-format: yyyy-MM-dd HH:mm:ss.SSS
     time-zone: Asia/Seoul
 
+  # security
+  security:
+    oauth2:
+      client:
+        registration:
+          # 구글 로그인 추가
+          google:
+            client-id: ${HYEGYEONG_CLIENT_ID}
+            client-secret: ${HYEGYEONG_CLIENT_SECRET}
+            redirect-uri : http://localhost:9090/login/oauth2/code/google
+            scope : 
+              - email
+              - profile
+        provider:
+          google:
+            authorization-uri: https://accounts.google.com/o/oauth2/auth
+            token-uri: https://oauth2.googleapis.com/token
+            user-info-uri: https://www.googleapis.com/oauth2/v3/userinfo
+            user-name-attribute: sub    
+
 springdoc:
   swagger-ui:
     path: /swagger-ui.html
