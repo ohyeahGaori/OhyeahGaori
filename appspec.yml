@@ -1,0 +1,12 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /home/ec2-user/dockerBuild/
+    overwrit : true
+    
+hooks:
+  AfterInstall:
+    - location: HyegyeongGaori/scripts/start_docker.sh
+      timeout: 300
+      runas: root
